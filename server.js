@@ -1,15 +1,9 @@
-var http = require('http');
-var fs = require('fs');
+var express = require('express')
+var app = express()
 
-const PORT=9000; 
+// respond with "hello world" when a GET request is made to the homepage
+app.get('/', function (req, res) {
+	res.sendFile(__dirname + '/index.html')
+})
 
-fs.readFile('./index.html', function (err, html) {
-
-    if (err) throw err;    
-
-    http.createServer(function(request, response) {  
-        response.writeHeder(200, {"Content-Type": "text/html"});  
-        response.write(html);  
-        response.end();  
-    }).listen(PORT);
-});
+app.listen(8081)

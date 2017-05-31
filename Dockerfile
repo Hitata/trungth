@@ -1,12 +1,18 @@
 FROM node:6.10.3
 
+#Create user app.
+RUN useradd --user-group --create-home --shell /bin/false app
+
 ENV HOME=/home/app
 
-COPY . $HOME/chat
+COPY package.json npm-shrinkwrap.json $HOME/trungth/
+RUN chown -R app:app $HOME/*
 
-WORKDIR $HOME/chat
+USER app 
+WORKDIR $HOME/trungth
 
-EXPOSE 9000
+RUN npm install
 
-#CMD ["node", "server.js", ">", "trungth.log 2", ">", "trungth_err.log"]
-CMD node server.js > trungth.log 2 > trungth_err.log
+EXPOSE 8081
+
+CMD node server.js

@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  trungth:
+    container_name: trungth
+    build: .
+    image: trungth:4
+    command: node server.js
+    ports:
+      - "8081:8081"
+    volumes:
+      - .:/home/app/trungth
+      - /home/app/trungth/node_modules

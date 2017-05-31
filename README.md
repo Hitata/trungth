@@ -22,4 +22,4 @@
 ## Dockerfile [a really good tutorial](http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html)
 1. FROM Node:6.10.3 (Stable LTS)
 - specify the version tag and not use the 'latest'.
-2. Default npm with Node:6 is npm:3.10.10
+2. Npm is included in Node:6 is npm:3.10.10
